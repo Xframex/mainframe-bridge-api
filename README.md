@@ -1,7 +1,7 @@
 # 🏛️ ZenithBank: Enterprise Mainframe-to-Microservice Bridge
 
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.5-brightgreen?style=for-the-badge&logo=springboot)](https://spring.io/projects/spring-boot)
-[![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk)](https://www.oracle.com/java/)
+[![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)](https://www.oracle.com/java/)
 [![IBM z/OS](https://img.shields.io/badge/Mainframe-IBM%20z%2FOS-003E70?style=for-the-badge&logo=ibm)](https://www.ibm.com/it-infrastructure/z/os)
 [![DB2](https://img.shields.io/badge/Database-IBM%20DB2-052FAD?style=for-the-badge&logo=ibmdb2)](https://www.ibm.com/products/db2)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
