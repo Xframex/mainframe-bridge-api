@@ -102,9 +102,9 @@ For production environments, the following optimizations are implemented:
 
 ## 👨‍💻 Author
 **Ismail Loukili (Xframex)**
-*   *Expert in Mainframe Modernization & Fullstack Engineering*
+*   *Mainfraimer *
 *   [GitHub Profile](https://github.com/Xframex)
 *   [LinkedIn Profile](https://www.linkedin.com/in/loukili-ismail/)
 
 ---
-*"Bridging the 1970s reliability with 2020s agility."*
+*"I believe that bridging brings us all together."*
