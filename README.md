@@ -58,6 +58,30 @@ sequenceDiagram
 
 ---
 
+## 🚀 Quick Start & Testing Guide
+
+This project includes a built-in **Simulation Mode** so you can demonstrate it even without a live Mainframe connection.
+
+### 🔹 Step 1: Local Simulation (Quick Demo)
+1. **Boot with Test Profile:** Run the following command to use the in-memory H2 database:
+   ```bash
+   mvn spring-boot:run -Dspring-boot.run.profiles=test
+   ```
+2. **Open Swagger UI:** Navigate to [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html).
+3. **Execute a Test:** Use the `POST /api/v1/accounts` endpoint to create a record, then `GET` to retrieve it.
+
+### 🔹 Step 2: Automated Testing (Postman)
+1. Install [Postman](https://www.postman.com/).
+2. Import the collection: `testing/ZenithBank_Test_Collection.json`.
+3. Run the collection to verify the full CRUD lifecycle.
+
+### 🔹 Step 3: Real Mainframe Integration
+1. **DDL Execution:** Run the SQL script in the **Mainframe Preparation** section below on your z/OS DB2 subsystem.
+2. **Configure YAML:** Update `src/main/resources/application.yml` with your z/OS credentials.
+3. **Launch:** Run `mvn spring-boot:run` without profiles.
+
+---
+
 ## 💾 Mainframe Preparation
 
 To deploy this bridge, execute the following DDL on your DB2 subsystem:
@@ -86,17 +110,16 @@ CREATE INDEX IX_CUST_NAME ON ACCOUNTS (CUST_NAME);
 
 - **Resource Isolation:** Uses dedicated schemas (`BNKADM`) to prevent lateral movement.
 - **Connection Security:** Supports **SSL/TLS 1.2+** for the JDBC connection to z/OS.
-- **Input Sanitization:** Uses PreparedStatement (via JPA) to prevent SQL Injection, a critical requirement for financial audit compliance.
-- **Fault Tolerance:** Implements **Global Exception Handling** to mask internal mainframe error codes from end-users while logging them for internal DevOps teams.
+- **Input Sanitization:** Uses PreparedStatement (via JPA) to prevent SQL Injection.
+- **Fault Tolerance:** Implements **Global Exception Handling** to mask internal mainframe error codes.
 
 ---
 
 ## 🚀 Performance Tuning
 
-For production environments, the following optimizations are implemented:
-- **HikariCP Tuning:** `maximum-pool-size: 10` to limit MIPS usage on the mainframe.
-- **Fetch Size:** Optimized `fetch-size` for large GET requests to minimize network round-trips to z/OS.
-- **Caching:** Ready for Spring Cache (Redis) to offload repeated GET requests from the Mainframe.
+- **HikariCP Tuning:** `maximum-pool-size: 10` to limit MIPS usage.
+- **Fetch Size:** Optimized for large GET requests to minimize network round-trips.
+- **Caching:** Ready for Spring Cache (Redis) to offload repeated lookups from z/OS.
 
 ---
 
