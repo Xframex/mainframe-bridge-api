@@ -2,7 +2,7 @@ spring:
   application:
     name: zenithbank-mainframe-bridge
   
-  # LOCAL SIMULATION MODE (Recruiter Demo Mode)
+  # LOCAL SIMULATION MODE 
   datasource:
     url: jdbc:h2:mem:bankdb;DB_CLOSE_DELAY=-1;MODE=DB2 # Simulates DB2 behavior
     driver-class-name: org.h2.Driver
